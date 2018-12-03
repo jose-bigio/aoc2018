@@ -41,6 +41,8 @@ def diff(string_1, string_2):
 	found = False
 	for a, b in zip(string_1, string_2):
 		if a != b:
+			#print("{} != {}".format(a, b))
+			found = True
 			index =  i
 			count += 1
 		
@@ -65,8 +67,13 @@ def find_box(boxes):
 
 	return "Not Found", "bleh"			
 
+
 with open('input.txt', 'r') as file:
 	boxes = []
 	for line in file:
 		boxes.append(line)
-	print(find_box(boxes))
+
+	box_id, index = find_box(boxes)
+	print(box_id, index)
+
+	print(box_id[:index] + box_id[index+1:])
