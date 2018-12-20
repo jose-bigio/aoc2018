@@ -41,33 +41,36 @@ def time_asleep(entries):
     return time_asleep_dict, sleep_minute_dict
 
 entries = (parse_input('input.txt'))
-sleep_times, sleep_overlap = time_asleep(entries)
+for entry in entries:
+    print(entry)
 
-best_guard = None
-max_time = 0
-for guard, time in sleep_times.items():
-    if time > max_time:
-        best_guard = guard
-        max_time = time
-
-print("Sleepiest guard is {}".format(best_guard))
-values = sleep_overlap[best_guard]
-max_sleep_minute = values.index(max(values))
-print("They sleep the most at time {}".format(max_sleep_minute))
-
-print(max_sleep_minute*int(best_guard))
-
-def most_frequently_asleep(sleep_overlap):
-    guard_number = None 
-    minute = None
-    max_frequency = 0
-    for guard, frequencies in sleep_overlap.items():
-       current_frequency = max(frequencies)
-       if current_frequency > max_frequency:
-           max_frequency = current_frequency
-           minute = frequencies.index(max_frequency)
-           guard_number = guard
-
-    return int(guard_number) * int(minute)
-
-print(most_frequently_asleep(sleep_overlap))
+#sleep_times, sleep_overlap = time_asleep(entries)
+#
+#best_guard = None
+#max_time = 0
+#for guard, time in sleep_times.items():
+#    if time > max_time:
+#        best_guard = guard
+#        max_time = time
+#
+#print("Sleepiest guard is {}".format(best_guard))
+#values = sleep_overlap[best_guard]
+#max_sleep_minute = values.index(max(values))
+#print("They sleep the most at time {}".format(max_sleep_minute))
+#
+#print(max_sleep_minute*int(best_guard))
+#
+#def most_frequently_asleep(sleep_overlap):
+#    guard_number = None 
+#    minute = None
+#    max_frequency = 0
+#    for guard, frequencies in sleep_overlap.items():
+#       current_frequency = max(frequencies)
+#       if current_frequency > max_frequency:
+#           max_frequency = current_frequency
+#           minute = frequencies.index(max_frequency)
+#           guard_number = guard
+#
+#    return int(guard_number) * int(minute)
+#
+#print(most_frequently_asleep(sleep_overlap))
